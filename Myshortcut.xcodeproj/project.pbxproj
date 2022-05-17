@@ -14,6 +14,9 @@
 		C6A483D328328E35002CA8A3 /* MyshortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483D228328E35002CA8A3 /* MyshortcutTests.swift */; };
 		C6A483DD28328E35002CA8A3 /* MyshortcutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483DC28328E35002CA8A3 /* MyshortcutUITests.swift */; };
 		C6A483DF28328E35002CA8A3 /* MyshortcutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483DE28328E35002CA8A3 /* MyshortcutUITestsLaunchTests.swift */; };
+		C6A483EC2832C5EB002CA8A3 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483EB2832C5EB002CA8A3 /* BlockView.swift */; };
+		C6A483EE2832F07D002CA8A3 /* BlockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483ED2832F07D002CA8A3 /* BlockList.swift */; };
+		C6A483F028332473002CA8A3 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483EF28332473002CA8A3 /* ProgramView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		C6A483D828328E35002CA8A3 /* MyshortcutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyshortcutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A483DC28328E35002CA8A3 /* MyshortcutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyshortcutUITests.swift; sourceTree = "<group>"; };
 		C6A483DE28328E35002CA8A3 /* MyshortcutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyshortcutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C6A483EB2832C5EB002CA8A3 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		C6A483ED2832F07D002CA8A3 /* BlockList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockList.swift; sourceTree = "<group>"; };
+		C6A483EF28332473002CA8A3 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			children = (
 				C6A483C128328E31002CA8A3 /* MyshortcutApp.swift */,
 				C6A483C328328E31002CA8A3 /* ContentView.swift */,
+				C6A483EF28332473002CA8A3 /* ProgramView.swift */,
+				C6A483ED2832F07D002CA8A3 /* BlockList.swift */,
+				C6A483EB2832C5EB002CA8A3 /* BlockView.swift */,
 				C6A483C528328E35002CA8A3 /* Assets.xcassets */,
 				C6A483C728328E35002CA8A3 /* Preview Content */,
 			);
@@ -258,6 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A483C428328E31002CA8A3 /* ContentView.swift in Sources */,
+				C6A483EE2832F07D002CA8A3 /* BlockList.swift in Sources */,
+				C6A483F028332473002CA8A3 /* ProgramView.swift in Sources */,
+				C6A483EC2832C5EB002CA8A3 /* BlockView.swift in Sources */,
 				C6A483C228328E31002CA8A3 /* MyshortcutApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

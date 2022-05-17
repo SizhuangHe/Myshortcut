@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct BlockList: View {
+    @State var blockCount = 0
+    
     var body: some View {
         NavigationView{
             VStack{
                 addBlock
                 ScrollView{
                     VStack{
-                        
-                        BlockView()
-                        BlockView()
-                        BlockView()
+                        ForEach(1..<blockCount+1){ i in
+                            BlockView()
+                        }
                     }
                 }
             }
@@ -25,10 +26,10 @@ struct BlockList: View {
     }
     
     var addBlock: some View{
-        
         Button{
-            Text("do")
+            blockCount += 1
         } label: {
+            
             HStack{
                 Image(systemName: "plus.circle.fill")
                 Text("Add Action")

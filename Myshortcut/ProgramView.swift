@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProgramView: View {
+    @State private var isShowingSheet = false
+    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
@@ -16,12 +18,18 @@ struct ProgramView: View {
             VStack{
                 HStack{
                     Spacer()
+                
                     Button{
-                        Text("Edit program")
+                        isShowingSheet.toggle()
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "ellipsis.circle.fill")
+                        .foregroundColor(Color.white)
+                        .padding()
                     }
-                    .padding()
+                    .sheet(isPresented: $isShowingSheet){
+                        BlockList()
+                    }
+//
                 }
                 Text("New Shortcut")
                     .font(.body)
@@ -33,10 +41,6 @@ struct ProgramView: View {
                     .foregroundColor(Color.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
-                    
-                
-                
-                
             }
         }
     }

@@ -16,14 +16,9 @@ struct ContentView: View {
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]){
                     ForEach(1..<shortcutCount + 1){ i in
-                        NavigationLink{
-                            BlockList()
-                        } label:{
-                            ProgramView()
-                                .aspectRatio(3/2, contentMode: .fit)
-                                .padding()
-                        }
-                        
+                        ProgramView()
+                            .aspectRatio(3/2, contentMode: .fit)
+                            .padding()
                     }
                 }
             }

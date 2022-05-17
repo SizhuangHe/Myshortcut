@@ -6,34 +6,42 @@
 //
 
 import SwiftUI
+import UIKit
 
-func seeMore(){
-    Text("See more")
-}
+
 
 struct BlockView: View {
     @State private var isShowingSheet = false
+    @State private var buttonName = "Condition"
+    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
                 .fill()
-                .foregroundColor(.gray)
+                .foregroundColor(Color(UIColor.systemGray5))
 
             HStack{
-            Text("If")
-                .padding()
-            
+                Text("If")
+                        .padding(.horizontal)
                 Button{
                     isShowingSheet.toggle()
+        
                 } label:{
-                    Text("Condition")
+                    Text(buttonName)
                 }
+                .buttonStyle(.bordered)
                 .sheet(isPresented: $isShowingSheet){
-                    SelectionList()
+                    SelectionList(buttonName: $buttonName)
                 }
+                .padding(.horizontal)
+                    Text("blablabla")
+                        .padding(.horizontal)
+                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-        
+            .padding()
+            
+                
         }
     }
 }

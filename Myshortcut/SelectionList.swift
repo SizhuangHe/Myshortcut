@@ -9,12 +9,14 @@ import SwiftUI
 
 struct selectionItem{
     var name:String
-    var isSelected:Bool = false
+    @State var isSelected:Bool = false
 }
 
 struct SelectionList: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var buttonName:String
     
-    private var listOfOptions = [
+     var listOfOptions = [
         selectionItem(name: "is"),
         selectionItem(name: "is not"),
         selectionItem(name: "has any value"),
@@ -23,23 +25,34 @@ struct SelectionList: View {
         selectionItem(name: "does not contain"),
         selectionItem(name: "starts with"),
         selectionItem(name: "ends with"),
+        selectionItem(name: "Cancel")
         
         
     ]
     
     var body: some View {
-        let optionList = listOfOptions
         List{
-            ForEach(optionList, id: \.name){ item in
-                Text(item.name)
-                    .frame(maxWidth: .infinity , alignment: .center)
+            ForEach(listOfOptions, id: \.name){ item in
+                Button{
+                    if item.name != "Cancel"{
+                        buttonName = item.name
+                    }
+                    item.isSelected = true
+                    presentationMode.wrappedValue.dismiss()
+                    
+                } label:{
+                    Text(item.name)
+                        .frame(maxWidth: .infinity , alignment: .center)
+                }
+              
             }
+           
         }
     }
 }
 
-struct SelectionList_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectionList()
-    }
-}
+//struct SelectionList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectionList()
+//    }
+//}

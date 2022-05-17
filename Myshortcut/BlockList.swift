@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+
+
 struct BlockList: View {
-    @State var blockCount = 0
+    @State var blockCount = 3 // TODO: change to 0
+    
+    func move(from source: IndexSet, to destination: Int) {
+        // move the data here
+    }
     
     var body: some View {
         NavigationView{
@@ -16,8 +22,10 @@ struct BlockList: View {
                 addBlock
                 ScrollView{
                     VStack{
+                        //Text("\(blockCount)")
                         ForEach(1..<blockCount+1){ i in
                             BlockView()
+                                .padding()
                         }
                     }
                 }
@@ -26,15 +34,21 @@ struct BlockList: View {
     }
     
     var addBlock: some View{
-        Button{
-            blockCount += 1
-        } label: {
-            
-            HStack{
-                Image(systemName: "plus.circle.fill")
-                Text("Add Action")
+        
+            Button{
+                blockCount += 1
+            } label: {
+                HStack{
+                    Image(systemName: "plus.circle.fill")
+                    Text("Add Action")
+                        .bold()
+                }
+                .frame(maxWidth: .infinity)
             }
-        }
+            .buttonStyle(.bordered)
+            .tint(.blue)
+            .controlSize(.large)
+            .padding()
     }
 }
 

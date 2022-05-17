@@ -10,8 +10,10 @@ import SwiftUI
 
 
 struct BlockList: View {
-    @State var blockCount = 3 // TODO: change to 0
-    @State private var blocks:[BlockView()] = []
+    @State var blockCount = 0
+    @State private var isShowingBlockSheet = false
+    @State private var blocks:[Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    @State private var newBlockName = "Normal block 1"
     
     func move(from source: IndexSet, to destination: Int) {
         blocks.move(fromOffsets: source, toOffset: destination)
@@ -21,25 +23,23 @@ struct BlockList: View {
         NavigationView{
             VStack{
                 addBlock
-                ScrollView{
-                    VStack{
-                        //Text("\(blockCount)")
-                        ForEach(1..<blockCount+1){ i in
-                            blocks.append(BlockView())
-                            BlockView()
-                                .padding()
-                        }
-                        .onMove(perform: move)
+                List{
+                    ForEach(blocks[1..<blockCount+1],id:\.self){ i in
+                        BlockView()
                     }
+                    .onMove(perform: move)
+                }
+                .frame(maxWidth: .infinity)
+                .toolbar{
+                    EditButton()
                 }
             }
         }
     }
     
     var addBlock: some View{
-        
             Button{
-                blockCount += 1
+                isShowingBlockSheet = true
             } label: {
                 HStack{
                     Image(systemName: "plus.circle.fill")
@@ -47,6 +47,9 @@ struct BlockList: View {
                         .bold()
                 }
                 .frame(maxWidth: .infinity)
+            }
+            .sheet(isPresented: $isShowingBlockSheet){
+                SelectNewBlock(newBlockName: $newBlockName)
             }
             .buttonStyle(.bordered)
             .tint(.blue)
@@ -58,6 +61,5 @@ struct BlockList: View {
 struct BlockList_Previews: PreviewProvider {
     static var previews: some View {
         BlockList()
-
     }
 }

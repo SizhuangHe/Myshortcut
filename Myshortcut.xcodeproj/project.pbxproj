@@ -18,6 +18,7 @@
 		C6A483EE2832F07D002CA8A3 /* BlockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483ED2832F07D002CA8A3 /* BlockList.swift */; };
 		C6A483F028332473002CA8A3 /* ProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483EF28332473002CA8A3 /* ProgramView.swift */; };
 		C6A483F2283340D7002CA8A3 /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483F1283340D7002CA8A3 /* SelectionList.swift */; };
+		C6F4259728343DAB0048CBE1 /* SelectNewBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F4259628343DAB0048CBE1 /* SelectNewBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C6A483ED2832F07D002CA8A3 /* BlockList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockList.swift; sourceTree = "<group>"; };
 		C6A483EF28332473002CA8A3 /* ProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramView.swift; sourceTree = "<group>"; };
 		C6A483F1283340D7002CA8A3 /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
+		C6F4259628343DAB0048CBE1 /* SelectNewBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNewBlock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C6A483C328328E31002CA8A3 /* ContentView.swift */,
 				C6A483EF28332473002CA8A3 /* ProgramView.swift */,
 				C6A483ED2832F07D002CA8A3 /* BlockList.swift */,
+				C6F4259628343DAB0048CBE1 /* SelectNewBlock.swift */,
 				C6A483EB2832C5EB002CA8A3 /* BlockView.swift */,
 				C6A483F1283340D7002CA8A3 /* SelectionList.swift */,
 				C6A483C528328E35002CA8A3 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				C6A483F2283340D7002CA8A3 /* SelectionList.swift in Sources */,
 				C6A483F028332473002CA8A3 /* ProgramView.swift in Sources */,
 				C6A483EC2832C5EB002CA8A3 /* BlockView.swift in Sources */,
+				C6F4259728343DAB0048CBE1 /* SelectNewBlock.swift in Sources */,
 				C6A483C228328E31002CA8A3 /* MyshortcutApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

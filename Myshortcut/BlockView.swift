@@ -12,20 +12,27 @@ func seeMore(){
 }
 
 struct BlockView: View {
+    @State private var isShowingSheet = false
     var body: some View {
-        HStack{
-//            RoundedRectangle(cornerRadius: 10)
-//                .fill()
-//                .foregroundColor(.white)
-//                .frame(width: 200, height: 100)
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(.gray)
-//                .frame(width: 200, height: 100)
-            
-            Text("parameter")
+        ZStack{
+            RoundedRectangle(cornerRadius: 10)
+                .fill()
+                .foregroundColor(.gray)
+
+            HStack{
+            Text("If")
                 .padding()
             
-            Spacer()
+                Button{
+                    isShowingSheet.toggle()
+                } label:{
+                    Text("Condition")
+                }
+                .sheet(isPresented: $isShowingSheet){
+                    SelectionList()
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         
         }
     }

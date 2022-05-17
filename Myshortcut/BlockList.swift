@@ -12,9 +12,13 @@ struct BlockList: View {
         NavigationView{
             VStack{
                 addBlock
-                List{
-                    
-                    BlockView()
+                ScrollView{
+                    VStack{
+                        
+                        BlockView()
+                        BlockView()
+                        BlockView()
+                    }
                 }
             }
         }

@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var shortcutCount = 0
+    @State var shortcutCount = 1
     
     
     var body: some View {
-        NavigationView{
+       NavigationView{
             ScrollView{
-//                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]){
-                VStack{
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]){
                     ForEach(1..<shortcutCount + 1){ i in
                         NavigationLink{
                             BlockList()
@@ -24,14 +23,17 @@ struct ContentView: View {
                                 .aspectRatio(3/2, contentMode: .fit)
                                 .padding()
                         }
+                        
                     }
                 }
             }
+           
             .navigationTitle("All Shortcuts")
             .toolbar{
                 addProgram
             }
         }
+        
     }
     
     var addProgram: some View{

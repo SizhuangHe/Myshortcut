@@ -11,9 +11,10 @@ import SwiftUI
 
 struct BlockList: View {
     @State var blockCount = 3 // TODO: change to 0
+    @State private var blocks:[BlockView()] = []
     
     func move(from source: IndexSet, to destination: Int) {
-        // move the data here
+        blocks.move(fromOffsets: source, toOffset: destination)
     }
     
     var body: some View {
@@ -24,9 +25,11 @@ struct BlockList: View {
                     VStack{
                         //Text("\(blockCount)")
                         ForEach(1..<blockCount+1){ i in
+                            blocks.append(BlockView())
                             BlockView()
                                 .padding()
                         }
+                        .onMove(perform: move)
                     }
                 }
             }
@@ -55,5 +58,6 @@ struct BlockList: View {
 struct BlockList_Previews: PreviewProvider {
     static var previews: some View {
         BlockList()
+
     }
 }

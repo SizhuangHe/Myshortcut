@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+
+
 @main
 struct MyshortcutApp: App {
+    
     var body: some Scene {
+       
         WindowGroup {
             ContentView()
+                .environmentObject(block())
+                .environmentObject(program())
         }
     }
 }

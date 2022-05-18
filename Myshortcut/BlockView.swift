@@ -10,7 +10,7 @@ import UIKit
 
 
 
-struct BlockView: View {
+struct IfBlockView: View {
     @State private var isShowingSheet = false
     @State private var buttonName = "Condition"
     
@@ -42,8 +42,17 @@ struct BlockView: View {
     //}
 }
 
+struct NormalBlockView: View{
+    
+    var body: some View{
+        Text("a Normal Block")
+            .frame(maxWidth: .infinity, alignment: .leading)
+        
+    }
+}
+
 struct BlockView_Previews: PreviewProvider {
     static var previews: some View {
-        BlockView()
+        IfBlockView()
     }
 }

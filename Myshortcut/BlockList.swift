@@ -10,24 +10,30 @@ import SwiftUI
 
 
 struct BlockList: View {
-    @State var blockCount = 0
+    @EnvironmentObject private var blocks: block
+    
     @State private var isShowingBlockSheet = false
-    @State private var blocks:[Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    @State private var newBlockName = "Normal block 1"
     
     func move(from source: IndexSet, to destination: Int) {
-        blocks.move(fromOffsets: source, toOffset: destination)
+        blocks.blockArr.move(fromOffsets: source, toOffset: destination)
     }
     
     var body: some View {
         NavigationView{
             VStack{
                 addBlock
+                
                 List{
-                    ForEach(blocks[1..<blockCount+1],id:\.self){ i in
-                        BlockView()
+                    if blocks.blockArr.count > 0{
+                        ForEach(blocks.blockArr,id:\.self){ i in
+                            if i == 1{
+                                IfBlockView()
+                            }else{
+                                NormalBlockView()
+                            }
+                        }
+                        .onMove(perform: move)
                     }
-                    .onMove(perform: move)
                 }
                 .frame(maxWidth: .infinity)
                 .toolbar{
@@ -49,7 +55,8 @@ struct BlockList: View {
                 .frame(maxWidth: .infinity)
             }
             .sheet(isPresented: $isShowingBlockSheet){
-                SelectNewBlock(newBlockName: $newBlockName)
+                SelectNewBlock()
+                    .environmentObject(blocks)
             }
             .buttonStyle(.bordered)
             .tint(.blue)
@@ -58,8 +65,11 @@ struct BlockList: View {
     }
 }
 
-struct BlockList_Previews: PreviewProvider {
-    static var previews: some View {
-        BlockList()
-    }
-}
+
+//struct BlockList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BlockList()
+//            .environmentObject(blocks)
+//            
+//    }
+//}

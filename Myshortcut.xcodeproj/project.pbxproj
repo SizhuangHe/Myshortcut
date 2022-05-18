@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61E0C8428346D9E0082B706 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E0C8328346D9E0082B706 /* DataStore.swift */; };
 		C6A483C228328E31002CA8A3 /* MyshortcutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483C128328E31002CA8A3 /* MyshortcutApp.swift */; };
 		C6A483C428328E31002CA8A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A483C328328E31002CA8A3 /* ContentView.swift */; };
 		C6A483C628328E35002CA8A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A483C528328E35002CA8A3 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C61E0C8328346D9E0082B706 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		C6A483BE28328E31002CA8A3 /* Myshortcut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Myshortcut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A483C128328E31002CA8A3 /* MyshortcutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyshortcutApp.swift; sourceTree = "<group>"; };
 		C6A483C328328E31002CA8A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A483C128328E31002CA8A3 /* MyshortcutApp.swift */,
+				C61E0C8328346D9E0082B706 /* DataStore.swift */,
 				C6A483C328328E31002CA8A3 /* ContentView.swift */,
 				C6A483EF28332473002CA8A3 /* ProgramView.swift */,
 				C6A483ED2832F07D002CA8A3 /* BlockList.swift */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A483C428328E31002CA8A3 /* ContentView.swift in Sources */,
+				C61E0C8428346D9E0082B706 /* DataStore.swift in Sources */,
 				C6A483EE2832F07D002CA8A3 /* BlockList.swift in Sources */,
 				C6A483F2283340D7002CA8A3 /* SelectionList.swift in Sources */,
 				C6A483F028332473002CA8A3 /* ProgramView.swift in Sources */,

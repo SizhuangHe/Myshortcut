@@ -9,15 +9,16 @@ import SwiftUI
 
 struct newBlock{
     var name:String
-    @State var isSelected:Bool = false
 }
 
 struct SelectNewBlock: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var newBlockName:String
+    @EnvironmentObject private var blocks: block
+    
+    @State private var newBlockType = 0
     
     
-    var blockOptions = [
+    let blockOptions = [
         newBlock(name: "Normal block 1"),
         newBlock(name: "Normal block 2"),
         newBlock(name: "Normal block 3"),
@@ -30,7 +31,12 @@ struct SelectNewBlock: View {
         List{
             ForEach(blockOptions, id: \.name){ item in
                 Button{
-                    newBlockName = item.name
+                    if item.name == "the if block"{
+                        newBlockType = 1
+                    }
+                    blocks.blockArr.append(newBlockType)
+                    presentationMode.wrappedValue.dismiss()
+                        
                 } label:{
                     Text(item.name)
                         .frame(maxWidth: .infinity , alignment: .center)

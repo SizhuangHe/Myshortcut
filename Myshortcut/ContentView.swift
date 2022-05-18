@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var shortcutCount = 1
+    @EnvironmentObject private var programs:program
     
     
     var body: some View {
        NavigationView{
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]){
-                    ForEach(1..<shortcutCount + 1){ i in
-                        ProgramView()
-                            .aspectRatio(3/2, contentMode: .fit)
-                            .padding()
+                    if programs.progArr.count > 0{
+                        ForEach(programs.progArr, id: \.self){ i in
+                            ProgramView()
+                                .aspectRatio(3/2, contentMode: .fit)
+                                .padding()
+                        }
                     }
+                    
+                    
                 }
             }
            
@@ -33,7 +37,7 @@ struct ContentView: View {
     
     var addProgram: some View{
         Button{
-            shortcutCount += 1
+            programs.progArr.append(1)
         } label: {
             Image(systemName: "plus")
         }

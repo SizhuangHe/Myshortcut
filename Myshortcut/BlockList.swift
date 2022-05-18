@@ -22,16 +22,28 @@ struct BlockList: View {
         NavigationView{
             VStack{
                 addBlock
-                
                 List{
                     if blocks.blockArr.count > 0{
-                        ForEach(blocks.blockArr,id:\.self){ item in
-                            if item.blockType == BlockType.IfBlock{
+                        ForEach(blocks.blockArr.indices,id:\.self){ index in
+                            if blocks.blockArr[index].blockType == BlockType.IfBlock{
                                 IfBlockView()
-                            }else if item.blockType == BlockType.EndIfBlock{
+                            }else if blocks.blockArr[index].blockType == BlockType.EndIfBlock{
                                 EndIfBlockView()
                             }else{
-                                NormalBlockView()
+                                if blocks.blockArr[index - 1].blockType == BlockType.IfBlock{
+                                    blocks.blockArr[index].indented = true
+                                }
+                                if blocks.blockArr[index - 1].indented{
+                                    blocks.blockArr[index].indented = true
+                                }
+                                if blocks.blockArr[index].indented{
+                                    HStack{
+                                        Text("     ")
+                                        NormalBlockView()
+                                    }
+                                }else{
+                                    NormalBlockView()
+                                }
                             }
                         }
                         .onMove(perform: move)

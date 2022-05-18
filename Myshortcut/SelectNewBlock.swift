@@ -12,8 +12,6 @@ struct SelectNewBlock: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var blocks: Blocks
     
-    
-    
     let blockOptions = [
         block(name: "Normal block 1"),
         block(name: "Normal block 2"),

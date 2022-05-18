@@ -15,6 +15,7 @@ struct block: Hashable{
     var id = UUID()
     var name:String
     var blockType = BlockType.NormalBlock
+    var indented = false
     
 }
 

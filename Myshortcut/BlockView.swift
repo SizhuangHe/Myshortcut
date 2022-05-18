@@ -47,6 +47,13 @@ struct NormalBlockView: View{
     var body: some View{
         Text("a Normal Block")
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct EndIfBlockView: View{
+    var body: some View{
+        Text("end if")
+            .frame(maxWidth: .infinity, alignment: .leading)
         
     }
 }

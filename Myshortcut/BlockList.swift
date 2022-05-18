@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct BlockList: View {
-    @EnvironmentObject private var blocks: block
+    @EnvironmentObject private var blocks: Blocks
     
     @State private var isShowingBlockSheet = false
     
@@ -25,9 +25,11 @@ struct BlockList: View {
                 
                 List{
                     if blocks.blockArr.count > 0{
-                        ForEach(blocks.blockArr,id:\.self){ i in
-                            if i == 1{
+                        ForEach(blocks.blockArr,id:\.self){ item in
+                            if item.blockType == BlockType.IfBlock{
                                 IfBlockView()
+                            }else if item.blockType == BlockType.EndIfBlock{
+                                EndIfBlockView()
                             }else{
                                 NormalBlockView()
                             }

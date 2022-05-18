@@ -7,8 +7,19 @@
 
 import Foundation
 
-class block: ObservableObject{
-    @Published var blockArr:[Int]
+enum BlockType {
+    case NormalBlock, IfBlock, EndIfBlock
+}
+
+struct block: Hashable{
+    var id = UUID()
+    var name:String
+    var blockType = BlockType.NormalBlock
+    
+}
+
+class Blocks: ObservableObject{
+    @Published var blockArr:[block]
     init(){
         blockArr = []
     }

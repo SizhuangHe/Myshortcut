@@ -16,7 +16,7 @@ struct MyshortcutApp: App {
        
         WindowGroup {
             ContentView()
-                .environmentObject(block())
+                .environmentObject(Blocks())
                 .environmentObject(program())
         }
     }

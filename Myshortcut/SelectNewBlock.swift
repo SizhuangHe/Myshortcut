@@ -7,24 +7,20 @@
 
 import SwiftUI
 
-struct newBlock{
-    var name:String
-}
 
 struct SelectNewBlock: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var blocks: block
+    @EnvironmentObject private var blocks: Blocks
     
-    @State private var newBlockType = 0
     
     
     let blockOptions = [
-        newBlock(name: "Normal block 1"),
-        newBlock(name: "Normal block 2"),
-        newBlock(name: "Normal block 3"),
-        newBlock(name: "Normal block 4"),
-        newBlock(name: "Normal block 5"),
-        newBlock(name: "the if block")
+        block(name: "Normal block 1"),
+        block(name: "Normal block 2"),
+        block(name: "Normal block 3"),
+        block(name: "Normal block 4"),
+        block(name: "Normal block 5"),
+        block(name: "the if block", blockType: BlockType.IfBlock)
     ]
     
     var body: some View {
@@ -32,9 +28,12 @@ struct SelectNewBlock: View {
             ForEach(blockOptions, id: \.name){ item in
                 Button{
                     if item.name == "the if block"{
-                        newBlockType = 1
+                        blocks.blockArr.append(block(name: "the if block", blockType: BlockType.IfBlock))
+                        blocks.blockArr.append(block(name: "the endif block", blockType: BlockType.EndIfBlock))
+                    }else{
+                        blocks.blockArr.append(block(name: "Normal block", blockType: BlockType.NormalBlock))
                     }
-                    blocks.blockArr.append(newBlockType)
+                    
                     presentationMode.wrappedValue.dismiss()
                         
                 } label:{

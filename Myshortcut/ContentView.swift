@@ -37,7 +37,7 @@ struct ContentView: View {
     
     var addProgram: some View{
         Button{
-            programs.progArr.append(1)
+            programs.progArr.append(programs.progArr.count)
         } label: {
             Image(systemName: "plus")
         }

@@ -16,6 +16,7 @@ struct BlockList: View {
     
     func move(from source: IndexSet, to destination: Int) {
         blocks.blockArr.move(fromOffsets: source, toOffset: destination)
+        blocks.getIndentationRight()
     }
     
     var body: some View {
@@ -24,21 +25,17 @@ struct BlockList: View {
                 addBlock
                 List{
                     if blocks.blockArr.count > 0{
-                        ForEach(blocks.blockArr.indices,id:\.self){ index in
-                            if blocks.blockArr[index].blockType == BlockType.IfBlock{
+                        ForEach(blocks.blockArr){ item in
+                            if item.blockType == BlockType.IfBlock{
                                 IfBlockView()
-                            }else if blocks.blockArr[index].blockType == BlockType.EndIfBlock{
+                                
+                            }else if item.blockType == BlockType.EndIfBlock{
                                 EndIfBlockView()
+                                
                             }else{
-                                if blocks.blockArr[index - 1].blockType == BlockType.IfBlock{
-                                    blocks.blockArr[index].indented = true
-                                }
-                                if blocks.blockArr[index - 1].indented{
-                                    blocks.blockArr[index].indented = true
-                                }
-                                if blocks.blockArr[index].indented{
+                                if item.indented{
                                     HStack{
-                                        Text("     ")
+                                        Text("   ")
                                         NormalBlockView()
                                     }
                                 }else{
@@ -48,6 +45,7 @@ struct BlockList: View {
                         }
                         .onMove(perform: move)
                     }
+                        
                 }
                 .frame(maxWidth: .infinity)
                 .toolbar{
@@ -56,6 +54,8 @@ struct BlockList: View {
             }
         }
     }
+    
+
     
     var addBlock: some View{
             Button{

@@ -31,7 +31,7 @@ struct SelectNewBlock: View {
                     }else{
                         blocks.blockArr.append(block(name: "Normal block", blockType: BlockType.NormalBlock))
                     }
-                    
+                    blocks.getIndentationRight()
                     presentationMode.wrappedValue.dismiss()
                         
                 } label:{
